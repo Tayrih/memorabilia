@@ -1,0 +1,32 @@
+[debug] [2018-01-07T15:26:05.231Z] ----------------------------------------------------------------------
+[debug] [2018-01-07T15:26:05.238Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\PC\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-01-07T15:26:05.239Z] CLI Version:   3.16.0
+[debug] [2018-01-07T15:26:05.239Z] Platform:      win32
+[debug] [2018-01-07T15:26:05.239Z] Node Version:  v8.9.4
+[debug] [2018-01-07T15:26:05.241Z] Time:          Sun Jan 07 2018 10:26:05 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-07T15:26:05.242Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-07T15:26:05.279Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-07T15:26:05.280Z] > authorizing via signed-in user
+[debug] [2018-01-07T15:26:05.287Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/memorabilia-lab  
+  
+ Sun Jan 07 2018 10:26:05 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-07T15:26:06.187Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-07T15:26:06.191Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/memorabilia-lab/tokens  
+  
+ Sun Jan 07 2018 10:26:06 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-07T15:26:06.977Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Laboratoria\memorabilia'...
+[info] 
+[debug] [2018-01-07T15:26:06.990Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/memorabilia-lab  
+  
+ Sun Jan 07 2018 10:26:06 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-07T15:26:09.858Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-07T15:26:09.863Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/120465628541/clients/_:getWebAppConfig  
+  
+ Sun Jan 07 2018 10:26:09 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-07T15:26:11.698Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
