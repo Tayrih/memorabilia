@@ -2,7 +2,8 @@
 
 .user {
   background: linear-gradient(42deg, rgba(42, 46, 54, 1) 0%, rgba(97, 107, 125, 1) 100%);
-  height: 100vh;
+  height: 90vh;
+  
 }
 
 /* CONTENT */
@@ -18,7 +19,7 @@
   position: relative;
   margin: 0 auto;
   width: 100%;
-  height: 100%;
+  height: 90vh;
   padding: 10px;
   border-radius: 10px 0 0 10px;
 }
@@ -26,7 +27,8 @@
 #slideshow h2 {
   margin: .0em auto .0em auto;
   text-align: center;
-  font-size: 1.4em;
+  font-size: 3em;
+  font-weight: bold;
   color: #fff;
   line-height: .5em;
 }
@@ -51,25 +53,25 @@
 }
 
 #slideshow .one {
-  background-image: url("http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/dots.png");
+  background-image: url("../assets/images/slide/dots.png");
   background-repeat: no-repeat;
   background-position: 0% 50%;
 }
 
 #slideshow .two {
-  background-image: url("http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/gears.png");
+  background-image: url("../assets/images/slide/gears.png");
   background-repeat: no-repeat;
   background-position: 0% 50%;
 }
 
 #slideshow .three {
-  background-image: url("http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/splat.png");
+  background-image: url("../assets/images/slide/splat.png");
   background-repeat: no-repeat;
   background-position: 0% 5%;
 }
 
 #slideshow .four {
-  background-image: url("http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/ray.png");
+  background-image: url("../assets/images/slide/ray.png");
   background-repeat: no-repeat;
   background-position: 0% 50%;
 }
@@ -156,6 +158,21 @@
         margin: auto;
         border-radius: 10px;*/
   }
+  #slideshow .one,#slideshow .two,#slideshow .three {
+    top: 60%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+   #slideshow {
+    height: 20vh;
+  }
+  .user {
+    height:60vh;
+    
+  }
+
+
 }
 
 /* CSS */
