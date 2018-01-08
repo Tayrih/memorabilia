@@ -11,6 +11,7 @@ $(document).ready(function() {
     }, 3850);
   });
 
+  // modal reovery
   function loginGoogle() {
   	if (!firebase.auth().currentUser) {
   	 var provider = new firebase.auth.GoogleAuthProvider();
@@ -19,9 +20,7 @@ $(document).ready(function() {
 			  var token = result.credential.accessToken;
 			  var user = result.user;
 			  var name = result.user.displayName;
-
-			  $('#page').css('display', 'none') && $('#page-2').css('display', 'block');
-			  $('#well').text('Bienvenido' + name + 'a Memorabilia');
+        window.location.href = 'explorer.html';
       }).catch(function(error) {
 			  var errorCode = error.code;
 			  var errorMessage = error.message;
@@ -45,9 +44,7 @@ $(document).ready(function() {
 			  var token = result.credential.accessToken;
 			  var user = result.user;
 			  var name = user.displayName;
-
-			  $('#page').css('display', 'none') && $('#page-2').css('display', 'block');
-			  $('#well').text('Bienvenido' + name + 'a Memorabilia');
+        window.location.href = 'explorer.html';
       }).catch(function(error) {
 			  var errorCode = error.code;
 			  var errorMessage = error.message;
@@ -65,10 +62,11 @@ $(document).ready(function() {
 
   $('#btn-google').on('click', loginGoogle);
   $('#btn-fb').on('click', loginFacebook);
+
   btnSend.on('click', function() {
     var name = nameUserChat.val();
     var msg = valTextChat.val();
-    
+
     firebase.database().ref('chat').push({
       name: name,
       message: msg
@@ -77,16 +75,16 @@ $(document).ready(function() {
 
   firebase.database().ref('chat').on('value', function(snapshot) {
     contChat.html('');
-    snapshot.forEach(function(e) {
-      var element = e.val();
+    snapshot.forEach(function(elm) {
+      var element = elm.val();
       var txtName = element.name;
       var txtMsg = element.message;
       var tName = $('<li/>', {
-              'class': 'li',
-            }).text(txtName + ': ');
+        'class': 'li',
+      }).text(txtName + ': ');
       var tMsg = $('<li/>', {
-              'class': 'li',
-            }).text(txtMsg);
+        'class': 'li',
+      }).text(txtMsg);
       contChat.append(tName);
       contChat.append(tMsg);
     });
