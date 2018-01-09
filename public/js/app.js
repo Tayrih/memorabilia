@@ -1,21 +1,17 @@
+window.setTimeout(function() {
+  if(firebase.auth().currentUser != null){
+    console.log(firebase.auth().currentUser);
+  } else {
+    console.log('no está logueado');
+    window.location.href = '../login.html';
+  }
+},500);
+
 $(document).ready(function() {
   var nameUserChat = $('#name');
   var valTextChat = $('#message');
   var btnSend = $('#btn-send');
   var contChat = $('#content-chat');
-
-  function initLogin() {
-    if(firebase.auth().currentUser != null){
-      console.log(firebase.auth().currentUser);
-      
-    } else {
-
-      console.log('no está logueado');
-      window.location.href = '../login.html';
-    }
-  }
-
-  setTimeout(initLogin,500);
 
   // mandar información a firebase para el chat
   
