@@ -3,66 +3,22 @@ $(document).ready(function() {
   var valTextChat = $('#message');
   var btnSend = $('#btn-send');
   var contChat = $('#content-chat');
-  // SLIDESHOW
-  $(function() {
-    $('#slideshow > div:gt(0)').hide();
-    setInterval(function() {
-      $('#slideshow > div:first').fadeOut(1500).next().fadeIn(1500).end().appendTo('#slideshow');
-    }, 3850);
-  });
 
-  // modal reovery
-  function loginGoogle() {
-  	if (!firebase.auth().currentUser) {
-  	 var provider = new firebase.auth.GoogleAuthProvider();
-  	 provider.addScope('https://www.googleapis.com/auth/plus.login');
-  	 firebase.auth().signInWithPopup(provider).then(function(result) {
-			  var token = result.credential.accessToken;
-			  var user = result.user;
-			  var name = result.user.displayName;
-        window.location.href = 'explorer.html';
-      }).catch(function(error) {
-			  var errorCode = error.code;
-			  var errorMessage = error.message;
-			  var email = error.email;
-			  var credential = error.credential;
+  function initLogin() {
+    if(firebase.auth().currentUser != null){
+      console.log(firebase.auth().currentUser);
+      
+    } else {
 
-			  if (errorCode === 'auth/account-exists-with-different-credential') {
-			  	alert('Es el mismo usuario');
-			  }
-      });
-  	} else {
-  		firebase.auth().signOut();
-  	}
+      console.log('no está logueado');
+      window.location.href = '../login.html';
+    }
   }
 
-  function loginFacebook() {
-  	if (!firebase.auth().currentUser) {
-  	 var provider = new firebase.auth.FacebookAuthProvider();
-  	 provider.addScope('public_profile');
-  	 firebase.auth().signInWithPopup(provider).then(function(result) {
-			  var token = result.credential.accessToken;
-			  var user = result.user;
-			  var name = user.displayName;
-        window.location.href = 'explorer.html';
-      }).catch(function(error) {
-			  var errorCode = error.code;
-			  var errorMessage = error.message;
-			  var email = error.email;
-			  var credential = error.credential;
+  setTimeout(initLogin,500);
 
-			  if (errorCode === 'auth/account-exists-with-different-credential') {
-			  	alert('Es el mismo usuario');
-			  }
-      });
-  	} else {
-  		firebase.auth().signOut();
-  	}
-  }
-
-  $('#btn-google').on('click', loginGoogle);
-  $('#btn-fb').on('click', loginFacebook);
-
+  // mandar información a firebase para el chat
+  
   btnSend.on('click', function() {
     var name = nameUserChat.val();
     var msg = valTextChat.val();
@@ -72,6 +28,8 @@ $(document).ready(function() {
       message: msg
     });
   });
+
+  // obtiene data de la base de datos
 
   firebase.database().ref('chat').on('value', function(snapshot) {
     contChat.html('');

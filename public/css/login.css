@@ -3,6 +3,17 @@
   --color2: #44cbce; /*mediumturquise*/
 }
 
+.login-center {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.cont-height {
+  display: flex;
+  align-items: stretch;
+}
+
 .user {
    height: 90vh;
    border-top: 3px solid var(--color1);

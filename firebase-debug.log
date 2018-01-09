@@ -1,41 +1,32 @@
-[debug] [2018-01-08T21:05:18.158Z] ----------------------------------------------------------------------
-[debug] [2018-01-08T21:05:18.166Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\PC\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
-[debug] [2018-01-08T21:05:18.167Z] CLI Version:   3.16.0
-[debug] [2018-01-08T21:05:18.167Z] Platform:      win32
-[debug] [2018-01-08T21:05:18.167Z] Node Version:  v8.9.4
-[debug] [2018-01-08T21:05:18.169Z] Time:          Mon Jan 08 2018 16:05:18 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-01-08T21:05:18.170Z] ----------------------------------------------------------------------
+[debug] [2018-01-09T04:22:52.560Z] ----------------------------------------------------------------------
+[debug] [2018-01-09T04:22:52.570Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\PC\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-01-09T04:22:52.571Z] CLI Version:   3.16.0
+[debug] [2018-01-09T04:22:52.571Z] Platform:      win32
+[debug] [2018-01-09T04:22:52.571Z] Node Version:  v8.9.4
+[debug] [2018-01-09T04:22:52.574Z] Time:          Mon Jan 08 2018 23:22:52 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-09T04:22:52.574Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-01-08T21:05:18.210Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-01-08T21:05:18.212Z] > authorizing via signed-in user
-[debug] [2018-01-08T21:05:18.219Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-01-08T21:05:18.220Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- { refresh_token: '1/5tb9U7tq62zkM1yqQB0vWMZhIqiuD3f8X5GH6R596aY',
-  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
-  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
-  grant_type: 'refresh_token',
-  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Mon Jan 08 2018 16:05:18 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-01-08T21:05:19.788Z] <<< HTTP RESPONSE 200
-[debug] [2018-01-08T21:05:19.803Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/memorabilia-lab  
+[debug] [2018-01-09T04:22:52.624Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-09T04:22:52.625Z] > authorizing via signed-in user
+[debug] [2018-01-09T04:22:52.634Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/memorabilia-lab  
   
- Mon Jan 08 2018 16:05:19 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-01-08T21:05:20.697Z] <<< HTTP RESPONSE 200
-[debug] [2018-01-08T21:05:20.700Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/memorabilia-lab/tokens  
+ Mon Jan 08 2018 23:22:52 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-09T04:22:54.557Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-09T04:22:54.560Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/memorabilia-lab/tokens  
   
- Mon Jan 08 2018 16:05:20 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-01-08T21:05:21.594Z] <<< HTTP RESPONSE 200
+ Mon Jan 08 2018 23:22:54 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-09T04:22:55.285Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from 'D:\Laboratoria\memorabilia'...
 [info] 
-[debug] [2018-01-08T21:05:21.609Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/memorabilia-lab  
+[debug] [2018-01-09T04:22:55.298Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/memorabilia-lab  
   
- Mon Jan 08 2018 16:05:21 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-01-08T21:05:23.950Z] <<< HTTP RESPONSE 200
-[debug] [2018-01-08T21:05:23.954Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/120465628541/clients/_:getWebAppConfig  
+ Mon Jan 08 2018 23:22:55 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-09T04:22:57.366Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-09T04:22:57.371Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/120465628541/clients/_:getWebAppConfig  
   
- Mon Jan 08 2018 16:05:23 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-01-08T21:05:26.304Z] <<< HTTP RESPONSE 200
+ Mon Jan 08 2018 23:22:57 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-01-09T04:22:59.368Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
 
