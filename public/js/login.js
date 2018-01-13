@@ -1,11 +1,12 @@
-$(document).ready(function() { 
+$(function() {
+  $('#slideshow > div:gt(0)').hide();
+  setInterval(function() {
+    $('#slideshow > div:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('#slideshow');
+  }, 3850);
+});
+
+$(document).ready(function() {
   // slide
-  $(function() {
-    $('#slideshow > div:gt(0)').hide();
-    setInterval(function() {
-      $('#slideshow > div:first').fadeOut(1500).next().fadeIn(1500).end().appendTo('#slideshow');
-    }, 3850);
-  });
   function loginGoogle() {
   	if (!firebase.auth().currentUser) {
   	 var provider = new firebase.auth.GoogleAuthProvider();
@@ -52,6 +53,10 @@ $(document).ready(function() {
   	} else {
   		firebase.auth().signOut();
   	}
+  }
+
+  function signOut() {
+    window.location.href = '../views/login.html';
   }
 
   $('#btn-google').on('click', loginGoogle);

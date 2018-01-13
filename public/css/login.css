@@ -1,6 +1,8 @@
 :root {
-  --color1: #64ffda; /*aquamarine*/
-  --color2: #44cbce; /*mediumturquise*/
+  --color1: #64ffda;
+  /*aquamarine*/
+  --color2: #44cbce;
+  /*mediumturquise*/
 }
 
 .login-center {
@@ -14,11 +16,11 @@
   align-items: stretch;
 }
 
-.user {
-   height: 90vh;
-   border-top: 3px solid var(--color1);
-   border-right: 3px solid var(--color1);
-   border-bottom: 3px solid var(--color1);
+.login-user {
+  height: 90vh;
+  border-top: 3px solid var(--color1);
+  border-right: 3px solid var(--color1);
+  border-bottom: 3px solid var(--color1);
 }
 
 /* SLIDESHOW */
@@ -75,7 +77,7 @@
 }
 
 @media only screen and (min-width: 601px) {
-  #slideshow .one,#slideshow .two,#slideshow .three {
+  #slideshow .one, #slideshow .two, #slideshow .three {
     top: 30%;
   }
 }
@@ -84,17 +86,15 @@
   #slideshow {
     height: 20vh;
   }
-
   #slideshow .one h3, #slideshow .two h3, #slideshow .three h3 {
     display: none;
   }
-
   .user {
-    height:60vh;
+    height: 60vh;
     border-top: none;
     border-left: 3px solid var(--color1);
     border-right: 3px solid var(--color1);
-    border-bottom: 3px solid var(--color1);   
+    border-bottom: 3px solid var(--color1);
   }
 }
 
