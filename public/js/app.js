@@ -169,12 +169,12 @@ $(document).ready(function() {
           var uid = element.uid;
           // var colection; campo que ingresa el usuario al configurar su perfil
           var boxContact = $('<div/>', {
-            'class': 'box-contact col s12',
+            'class': 'post col s12',
             'id': 'box-contact' + uid
           });
 
           var boxImg = $('<div/>', {
-            'class': 'box-contact col s1',
+            'class': 'box-contact col s2',
             'id': 'box-img' + uid
           });
 
@@ -184,7 +184,7 @@ $(document).ready(function() {
           });
 
           var nameContact = $('<p/>', {
-            'class': 'li',
+            'class': 'col s10',
           }).text(contact);
 
           var buttonFollow = $('<a/>', {
@@ -195,7 +195,7 @@ $(document).ready(function() {
             'class': 'li',
           }).text(colection);*/
           containerContact.append(boxContact);
-          containerContact.append(boxImg);
+          boxContact.append(boxImg);
           $('#box-img' + uid).append(imgContact);
           $('#box-contact' + uid).append(nameContact);
           $('#box-contact' + uid).append(buttonFollow);
