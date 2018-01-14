@@ -50,22 +50,23 @@ function initFirebase() {
       // console.log(userExist(user.uid));
       if (!userExist(user.uid)) {
         // conecto a la base de datos creo la referencia user y llamo a addUserDb
-        addUserDb(user.uid, user.displayName);
+        addUserDb(user.uid, user.displayName, user.photoURL);
       }
     }
   });
 }
 // obtiene uid y name
-function addUserDb(uid, name) {
+function addUserDb(uid, name, photo) {
   var conect = userConect.set({
     uid: uid,
-    name: name
+    name: name,
+    photo: photo
   });
 }
 
 function userExist(uid) {
   var exist = false;
-  firebase.database().ref('user').on('value', function(snapshot) {
+  firebase.database().ref('/user/' + uid).on('value', function(snapshot) {
     snapshot.forEach(function(elm) {
       var element = elm.val();
       // console.log(element);
@@ -92,6 +93,7 @@ $(document).ready(function() {
   btnSend.on('click', function() {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
+
         var name = user.displayName;
         var msg = valTextChat.val();
 
@@ -138,20 +140,18 @@ $(document).ready(function() {
 
 var newBox = $('#news-box');
   firebase.database().ref('state').on('value', function(snapshot) {
-    
+    newBox.html('');
     snapshot.forEach(function(elm) {
-valTextState.html('');
-    var element = elm.val();
+    valTextState.val('');
+      var element = elm.val();
       var name2U = element.user;
       var states = element.message;
     
     var sUserCard = $('<div/>', {
-        'class': 'card horizontal',
+        'class': 'post col s12',
       });
-    
-      
 
-      var post = $('<li/>', {
+      var post = $('<p/>', {
         'class': 'li',
       }).text(name2U + ': ' + states);
       newBox.append(sUserCard);
@@ -160,35 +160,11 @@ valTextState.html('');
     });
   });
 
-  toggleFab();
-
-  // Fab click
-  $('#prime').click(function() {
-    toggleFab();
-  });
-
-  // Toggle chat and links
-  function toggleFab() {
-    $('.prime').toggleClass('zmdi-plus');
-    $('.prime').toggleClass('zmdi-close');
-    $('.prime').toggleClass('is-active');
-    $('#prime').toggleClass('is-float');
-    $('.cht').toggleClass('is-visible');
-    $('.fab').toggleClass('is-visible');
-  }
-
-  // Loader effect
-  function loadBeat(beat) {
-    beat ? $('.cht_loader').addClass('is-loading') : $('.cht_loader').removeClass('is-loading');
-  }
+ 
   // cerrar sesión
 
   $('#sign-out').on('click', function() {
-    firebase.auth().signOut().then(function() {
-      console.log('cerrar sesion');
-    }).catch(function(error) {
-      console.log('error');
-    });
+    firebase.auth().signOut();
   });
   // boton para estados, guarda en firebase
 
@@ -204,4 +180,30 @@ valTextState.html('');
   $(function() {
     $('.button-collapse').sideNav();
 });
+
+  $('.chips').material_chip();
+  $('.chips-initial').material_chip({
+    data: [{
+      tag: 'Futbol',
+    }, {
+      tag: 'Anime',
+    }, {
+      tag: 'Monedas',
+    }],
+  });
+  $('.chips-placeholder').material_chip({
+    placeholder: 'Enter a tag',
+    secondaryPlaceholder: '+Tag',
+  });
+  $('.chips-autocomplete').material_chip({
+    autocompleteOptions: {
+      data: {
+        'Futbol': null,
+        'Anime': null,
+        'Monedas': null
+      },
+      limit: Infinity,
+      minLength: 1
+    }
+  });
 });

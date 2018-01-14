@@ -1,9 +1,19 @@
+:root{
+  --color1 : #4dd0e1; /*mediumturquoise*/
+  --color2 : #fff; /*white*/
+}
+
 body {
   font-family: 'Poppins', sans-serif;
+
 }
 
 .white-color {
-  color: #fff;
+  color: var(--color2);
+}
+
+.turq {
+  color: var(--color1);
 }
 
 .font {
@@ -57,7 +67,7 @@ main {
 }
 
 .chat-box {
-  background-color: white;
+  background-color: var(--color2);
   padding: 8px;
 }
 
@@ -76,19 +86,29 @@ main {
   padding: 8px;
 }
 
-.news-box {
-  background-color: white;
-  padding: 8px;
-}
-
 .color-box {
-  color: white;
+  color: var(--color2);
 }
 
 .box-description {
-  border: 1px solid #fff;
+  border: 1px solid var(--color2);
   margin: 10px 0;
   border-radius: 10px;
+  display: none;
+}
+
+.post {
+  border: 1px solid var(--color1);
+  margin: 5px 40px;
+  border-radius: 5px;
+}
+
+ul.right.hide-on-med-and-down {
+  height: 64px;
+}
+
+ul li a {
+  height: 64px;
 }
 
 div img.responsive-img.circle.user {
@@ -100,7 +120,7 @@ p.user-name {
   margin: 0;
 }
 
-div#user-photo {
+div#user-photo, div#other-user {
   margin-left: 25%;
 }
 
@@ -109,11 +129,31 @@ div#user-photo {
 }
 
 textarea#textarea {
-    padding: 10px;
+  padding: 10px;
 }
 
+/*settings*/
+  /* label color */
+   .input-field label {
+     color: #10aba7;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid var(--color1);
+     box-shadow: 0 1px 0 0 var(--color1);
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #10aba7;
+     box-shadow: 0 1px 0 0 #10aba7;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: var(--color1);
+   }
+
 @media only screen and (min-width: 601px) {
-  div.user-photo#user-photo{
+  div.user-photo#user-photo, div.user-photo#other-user{
     margin-left: 0;
     width: 40%;
   }
@@ -145,7 +185,7 @@ textarea#textarea {
 
 
 @media only screen and (min-width: 993px) {
-  div.user-photo#user-photo {
+  div.user-photo#user-photo, div.user-photo#other-user {
     width: 30%;
   }
 
