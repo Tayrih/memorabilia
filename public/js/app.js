@@ -5,6 +5,10 @@ var userNameProfile = $('#user-name-profile');
 var database = firebase.database();
 var userConect = null;
 
+var buttonFollow = $('<a/>', {
+  'class': 'follow',
+});
+
 function redirectLogin() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -45,7 +49,7 @@ function initFirebase() {
       }*/
 
       userImg.append(imgU);
-      userConect = database.ref('/user/' + user.uid);
+      userConect = database.ref('/user/' + user.uid + '/data');
       // console.log(userExist(user.uid));
       if (!userExist(user.uid)) {
         // conecto a la base de datos creo la referencia user y llamo a addUserDb
@@ -162,8 +166,10 @@ $(document).ready(function() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       firebase.database().ref('user').on('value', function(snapshot) {
+        containerContact.html("");
         snapshot.forEach(function(elm) {
-          var element = elm.val();
+          var element = elm.val().data;
+          // console.log(element);
           var contact = element.name;
           var photoContact = element.photo;
           var uid = element.uid;
@@ -187,8 +193,10 @@ $(document).ready(function() {
             'class': 'col s10',
           }).text(contact);
 
-          var buttonFollow = $('<a/>', {
-            'class': 'waves-effect waves-light btn'
+          buttonFollow = $('<a/>', {
+            'class': 'waves-effect waves-light btn follow',
+            'data-id' : uid,
+            'data-user' : user.uid,
           }).text('Seguir');
 
           /* var infContact = $('<p/>', {
@@ -200,23 +208,52 @@ $(document).ready(function() {
           $('#box-contact' + uid).append(nameContact);
           $('#box-contact' + uid).append(buttonFollow);
         });
+
+        $('.follow').on('click', function() {
+          var follow = $(this).data('id');
+          var user = $(this).data('user')
+          // console.log($(this).data('id'));
+          var postData = {
+            follow: follow
+          };
+
+          var postUser = {
+            follower: user,
+          }
+
+            // Get a key for a new Post.
+            // Write the new post's data simultaneously in the posts list and the user's post list.
+            var updates = {};
+            updates['/user/'+user+'/follow/' + follow] = postData;
+            updates['/user/'+follow+'/follower/' + user] = postUser;
+
+            firebase.database().ref().update(updates);
+        });
       });
     }
   });
 
-    // data para configuraciones
-  $('#bt-send-text').on('click', function() {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        var name2 = user.displayName;
-        var state = valTextState.val();
+  // settings
+  var upload = $('#uploader');
+  var btNewImage = $('#bt-new-img');
+  var btSave = $('#bt-save');
 
-        firebase.database().ref('state').push({
-          user: name2,
-          message: state
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      firebase.database().ref('user').on('value', function(snapshot) {
+        snapshot.forEach(function(elm) {
+          var placeholder = user.displayName;
+          var newName = $('#new-name').val();
+          var newColection = $('new-colect').val();
+          var aboutYou = $('about-you').val();
+          // var btNewImage = 
+          firebase.database().ref('user').push({
+            name: name,
+            message: msg
+          });
         });
-      }
-    });
+      });
+    }
   });
 
   // cerrar sesión
@@ -224,15 +261,18 @@ $(document).ready(function() {
   $('#sign-out').on('click', function() {
     firebase.auth().signOut();
   });
+
+
   // boton para estados, guarda en firebase
 
   $('#home').on('click', function() {
     window.location.href = '../index.html';
   });
 
-  $('#profile').on('click', function() {
+  $('[data-id="profile"]').on('click', function() {
     window.location.href = 'views/perfil.html';
   });
+
 
 
   $(function() {

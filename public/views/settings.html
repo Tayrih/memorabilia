@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../vendors/materialize/css/materialize.css">
   <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/chat.css">
   <title>Perfil</title>
 </head>
 
@@ -26,24 +25,24 @@
               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
                 <li>
-                  <a id="home"><i class="fa fa-home" aria-hidden="true"></i></a>
+                  <a data-id = "home"><i class="fa fa-home" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                  <a href="#following"><i class="fa fa-bell" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                  <a id="sign-out"><i class="fa fa-sign-out" aria-hidden="true" id="sign-out"></i>Cerrar Sesión</a>
+                  <a data-id = "sign-out"><i class="fa fa-sign-out" aria-hidden="true" id="sign-out"></i>Cerrar Sesión</a>
                 </li>
               </ul>
               <ul class="side-nav" id="mobile-demo">
                 <li>
-                  <a id="home"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
+                  <a data-id = "home"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
                 </li>
                 <li>
                   <a><i class="fa fa-bell" aria-hidden="true"></i>Notificaciones</a>
                 </li>
                 <li>
-                  <a id="sign-out"><i class="fa fa-sign-out" aria-hidden="true" id="sign-out"></i>Cerrar Sesión</a>
+                  <a data-id = "sign-out"><i class="fa fa-sign-out" aria-hidden="true" data-id = "sign-out"></i>Cerrar Sesión</a>
                 </li>
               </ul>
             </div>
@@ -61,22 +60,22 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input value="Alvin" id="first_name2" type="text" class="validate">
-          <label class="active" for="first_name2">Nombre</label>
+          <input value="Alvin" id="new-name" type="text" class="validate">
+          <label class="active" for="new-name">Nombre</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Ingrese algo aquí" id="first_name" type="text" class="validate">
-          <label for="first_name">¿Qué coleccionas?</label>
+        <div class="input-field col s12">
+          <input placeholder="Ingrese algo aquí" id="new-colect" type="text" class="validate">
+          <label for="new-colect">¿Qué coleccionas?</label>
         </div>
       </div>
       <div class="row">
         <div class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <label for="textarea1">Acerca de ti</label>
+              <textarea id="about-you" class="materialize-textarea"></textarea>
+              <label for="about-you">Acerca de ti</label>
             </div>
           </div>
         </div>
@@ -84,12 +83,13 @@
       <div class="row">
         <form action="#">
           <div class="file-field input-field">
-            <div class="btn cyan darken-1">
+            <div class="btn cyan darken-1" id="bt-new-img">
               <i class="fa fa-upload" aria-hidden="true"></i>
               <span>Cambiar imagen</span>
               <input type="file">
             </div>
             <div class="file-path-wrapper">
+              <progress value="0" max="100" id="uploader" class="col s12">0%</progress>
               <input class="file-path validate" type="text">
             </div>
           </div>
@@ -97,7 +97,7 @@
       </div>
       <div class="row">
         <div class="col s4 offset-s4">
-          <a class="waves-effect waves-light btn cyan darken-1">Guardar cambios</a>
+          <a class="waves-effect waves-light btn cyan darken-1" id="bt-save">Guardar cambios</a>
         </div>
       </div>
     </div>
