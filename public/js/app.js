@@ -10,7 +10,7 @@ function redirectLogin() {
     if (user) {
       initFirebase();
     } else {
-      window.location.href = '../views/login.html';
+      window.location.href = 'views/login.html';
     }
   });
 }
@@ -202,6 +202,21 @@ $(document).ready(function() {
         });
       });
     }
+  });
+
+    // data para configuraciones
+  $('#bt-send-text').on('click', function() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        var name2 = user.displayName;
+        var state = valTextState.val();
+
+        firebase.database().ref('state').push({
+          user: name2,
+          message: state
+        });
+      }
+    });
   });
 
   // cerrar sesión
